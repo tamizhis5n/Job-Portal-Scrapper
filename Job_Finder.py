@@ -10,5 +10,5 @@ def main(job,loc):
     d.to_csv("Jobs_list.csv",index=False)
 
 if __name__=="__main__":
-  #freshersWorld("data scientist","chennai")
-  main(input("Job title?:\n").lower(),input("Job Location?\n").lower())
+  main("data scientist","chennai")
+  #main(input("Job title?:\n").lower(),input("Job Location?\n").lower())
