@@ -34,7 +34,7 @@ def freshersWorld(job_title,location):
         var = i.find_all('span', attrs={'class':'desc'})
         var=i.find('a')
         links.append(var['href'])
-
+        print(str(var['href']))
         jd = BeautifulSoup(urllib.request.urlopen(str(var['href'])).read(), 'html.parser')
         jd_res = str(jd.find_all('div', attrs={'class':'col-md-12 col-lg-12 col-xs-12 padding-none margin-top-7'})).replace("]", "")
         job_desc.append(striphtml(str(jd_res).replace("[", "")))
