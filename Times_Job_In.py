@@ -48,7 +48,7 @@ def times_jobs(job_title,location):
         for k in tj_df['Link'].values:
             jd = BeautifulSoup(urllib.request.urlopen(str(k)).read(), 'html.parser')
             jd_res = str(jd.find_all('div', attrs={'class':'jd-sec'})).replace("]", "")
-            job_description.append(str(jd_res).replace("[", ""))
+            job_description.append(striphtml(str(jd_res).replace("[", "")))
         tj_df['Company'] = tj_df['Company'].apply(lambda x: x.replace('(More Jobs)', ''))
         tj_df['Job_Description'] = job_description
         tj_df['Location'] = location
