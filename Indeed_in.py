@@ -40,8 +40,6 @@ def indeed(job_title,location):
       jd_res = str(jd.find_all('div', attrs={'id': 'jobDescriptionText', 'class':'jobsearch-jobDescriptionText'})).replace("]", "")
       #jd_res = [x.find('div') for x in jd_res]
       zz=str(jd_res).replace("[", "")
-      print(zz)
-      print(striphtml(zz))
       d.append(striphtml(zz))
   #print(a)
   #print(b) 
