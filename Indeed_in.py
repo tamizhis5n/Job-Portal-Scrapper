@@ -48,4 +48,5 @@ def indeed(job_title,location):
 
 if __name__=="__main__":
   #indeed("data scientist","chennai")
-  indeed(input("Job title?:\n").lower(),input("Job Location?\n").lower())
+  df=indeed(input("Job title?:\n").lower(),input("Job Location?\n").lower())
+  df.to_csv("Indeed.csv",index=False)
