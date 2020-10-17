@@ -2,6 +2,11 @@ import pandas as pd
 from bs4 import BeautifulSoup
 import urllib.request
 
+import re
+def striphtml(data):
+    p = re.compile(r'<.*?>')
+    return p.sub('', data)
+
 def indeed(job_title,location):
 
   
@@ -34,7 +39,10 @@ def indeed(job_title,location):
       jd = BeautifulSoup(urllib.request.urlopen(link).read(), 'html.parser')
       jd_res = str(jd.find_all('div', attrs={'id': 'jobDescriptionText', 'class':'jobsearch-jobDescriptionText'})).replace("]", "")
       #jd_res = [x.find('div') for x in jd_res]
-      d.append(str(jd_res).replace("[", ""))
+      zz=str(jd_res).replace("[", "")
+      print(zz)
+      print(striphtml(zz))
+      d.append(striphtml(zz))
   #print(a)
   #print(b) 
   #print(c)
